@@ -24,20 +24,9 @@ bolt.addEventListener("click", () => {
 });
 
 lightning.addEventListener("click", () => {
-  if (verticalState === 0) {
-    verticalState = 1;
-    // Transition container to shifted up
-    root.style.setProperty('--container-y', `-48px`);
-    root.style.setProperty('--container-stretch', `48px`);
-  } else {
-    verticalState = 0;
-    // Transition container back to baseline
-    root.style.setProperty('--container-y', `0px`);
-    root.style.setProperty('--container-stretch', `0px`);
-  }
+  verticalState = verticalState === 0 ? 1 : 0;
   render();
 });
-
 function render() {
   root.style.setProperty("--value", value.toFixed(4));
   const percentage = Math.round(value * 100);

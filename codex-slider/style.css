@@ -175,7 +175,6 @@ body {
   stroke-linecap: round;
   stroke-linejoin: round;
   fill: rgba(255, 204, 0, 0);
-  filter: drop-shadow(0 1px 0 rgba(14, 102, 207, 0.09));
   transform: translateY(-2px);
   transition: stroke 180ms ease-out, fill 180ms ease-out, transform 180ms ease-out;
 }
@@ -186,9 +185,13 @@ body {
 }
 
 .codex-slider.is-lightning-active .codex-slider__lightning-hit .codex-slider__lightning {
+  stroke: color-mix(in srgb, var(--energy), var(--purple) calc(var(--value) * 100%));
+  fill: color-mix(in srgb, var(--energy), var(--purple) calc(var(--value) * 100%));
+}
+
+.codex-slider.is-lightning-active.is-flame-active .codex-slider__lightning-hit .codex-slider__lightning {
   stroke: #ffbb00;
   fill: #ffbb00;
-  filter: drop-shadow(0 0 6px rgba(255, 187, 0, 0.6));
 }
 
 /* Stunning overdrive active states */
