@@ -7,8 +7,84 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <main class="demo-stage" aria-label="Codex slider demo">
-      <section class="codex-slider" aria-label="Performance preference">
+    <main class="codex-page" aria-label="Codex follow-up composer demo">
+      <section class="result" aria-label="Completed task result" hidden>
+        <button class="result__duration" type="button">
+          <span>Worked for 28s</span>
+          <svg viewBox="0 0 12 20" aria-hidden="true"><path d="m2 2 8 8-8 8" /></svg>
+        </button>
+        <div class="result__divider"></div>
+
+        <div class="result__body">
+          <p>Pushed the latest change.</p>
+          <ul>
+            <li>Commit: <code>1215008</code> — <code>Tune Codex Slider stars</code></li>
+            <li>Branch: <code>main</code></li>
+            <li>
+              Repository:
+              <a href="#" aria-label="Repository suryanewa components">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.4a9.6 9.6 0 0 0-3.03 18.71c.48.09.66-.2.66-.46v-1.69c-2.68.58-3.25-1.14-3.25-1.14-.44-1.12-1.08-1.42-1.08-1.42-.88-.6.07-.59.07-.59.97.07 1.48 1 1.48 1 .86 1.48 2.27 1.05 2.82.8.09-.63.34-1.05.61-1.3-2.14-.24-4.39-1.07-4.39-4.75 0-1.05.38-1.91 1-2.58-.1-.24-.43-1.22.09-2.54 0 0 .81-.26 2.64.98A9.2 9.2 0 0 1 12 7.1c.82 0 1.63.11 2.4.32 1.83-1.24 2.64-.98 2.64-.98.52 1.32.19 2.3.09 2.54.62.67 1 1.53 1 2.58 0 3.69-2.26 4.5-4.4 4.74.35.3.65.88.65 1.78v2.57c0 .26.18.56.66.46A9.6 9.6 0 0 0 12 2.4Z" /></svg>
+                suryanewa/components
+              </a>
+            </li>
+          </ul>
+
+          <div class="result__actions" aria-label="Result actions">
+            <button type="button" aria-label="Copy">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="8" width="13" height="13" rx="3"/><path d="M8 8V6a3 3 0 0 1 3-3h7a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3h-1"/></svg>
+            </button>
+            <button type="button" aria-label="Good response">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 21H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3.5M8 21h8.2a3 3 0 0 0 2.85-2.08l2.08-6.5A3 3 0 0 0 18.27 8H14l.7-3.12A2.36 2.36 0 0 0 12.4 2L8 9.2V21Z"/></svg>
+            </button>
+            <button type="button" aria-label="Bad response">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 3H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h3.5M8 3h8.2a3 3 0 0 1 2.85 2.08l2.08 6.5A3 3 0 0 1 18.27 16H14l.7 3.12A2.36 2.36 0 0 1 12.4 22L8 14.8V3Z"/></svg>
+            </button>
+            <button type="button" aria-label="Share">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="composer" aria-label="Ask for follow-up changes">
+        <label class="sr-only" for="follow-up">Ask for follow-up changes</label>
+        <textarea id="follow-up" placeholder="Ask for follow-up changes"></textarea>
+
+        <div class="composer__left-actions">
+          <button class="icon-button icon-button--plus" type="button" aria-label="Add attachment">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18" /></svg>
+          </button>
+          <button class="approval-button" type="button">
+            <svg viewBox="0 0 28 28" aria-hidden="true">
+              <path d="M14 2.5 24 8v12L14 25.5 4 20V8l10-5.5Z" />
+              <circle cx="10.5" cy="12" r="1.3" />
+              <path d="M13.5 16.5c1.7 1 3.5.65 4.6-.8" />
+            </svg>
+            <span>Approve for me</span>
+          </button>
+        </div>
+
+        <button class="model-trigger" type="button" aria-expanded="false" aria-controls="slider-popover settings-menu">
+          <span class="model-trigger__content">
+            <svg class="model-trigger__speed-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z" /></svg>
+            <span class="model-trigger__model">5.6 Sol</span>
+            <span class="model-trigger__effort">Medium</span>
+          </span>
+          <svg class="model-trigger__chevron" viewBox="0 0 16 10" aria-hidden="true"><path d="m2 2 6 6 6-6" /></svg>
+          <span class="model-trigger__tooltip" role="tooltip">Select model <kbd>⌃⇧M</kbd></span>
+        </button>
+
+        <button class="icon-button composer__mic" type="button" aria-label="Use voice input">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="2" width="8" height="14" rx="4"/><path d="M4.5 11.5v.5a7.5 7.5 0 0 0 15 0v-.5M12 19.5V23M8 23h8"/></svg>
+        </button>
+        <button class="send-button" type="button" aria-label="Send message">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6" /></svg>
+        </button>
+
+        <div class="composer__grabber" aria-hidden="true"></div>
+
+        <div class="demo-stage" id="slider-popover" aria-hidden="true">
+          <section class="codex-slider" aria-label="Performance preference">
         <div class="codex-slider__header" aria-hidden="true">
           <div class="codex-slider__endpoint-copy is-visible">
             <span>Advanced</span>
@@ -23,17 +99,31 @@
             <svg class="codex-slider__bolt" viewBox="0 0 24 24" aria-hidden="true" fill="none">
               <path d="M8.9 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" />
             </svg>
+            <span class="codex-slider__control-tooltip" role="tooltip">
+              <span class="codex-slider__control-tooltip-title">Ultra</span>
+              <span class="codex-slider__control-tooltip-detail">More usage</span>
+            </span>
           </span>
           <span class="codex-slider__lightning-hit is-visible">
             <svg class="codex-slider__lightning" viewBox="0 0 24 24" aria-hidden="true" fill="none">
               <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
             </svg>
+            <span class="codex-slider__control-tooltip" role="tooltip">
+              <span class="codex-slider__control-tooltip-title">1.5x speed</span>
+              <span class="codex-slider__control-tooltip-detail">More usage</span>
+            </span>
           </span>
         </div>
 
         <div class="codex-slider__track-wrap">
           <div class="codex-slider__track" aria-hidden="true">
             <div class="codex-slider__fill"></div>
+            <div class="codex-slider__step-indicators">
+              <span style="--step-position: 0px"></span>
+              <span style="--step-position: 117.3333px"></span>
+              <span style="--step-position: 234.6667px"></span>
+              <span style="--step-position: 352px"></span>
+            </div>
             <div class="codex-slider__flame-overlay"></div>
             <div class="codex-slider__stars-container">
               <canvas class="codex-slider__stars"></canvas>
@@ -66,6 +156,67 @@
             aria-valuetext="Smarter"
           ></div>
         </div>
+      </section>
+        </div>
+
+        <section class="settings-menu" id="settings-menu" aria-label="Advanced model settings" aria-hidden="true">
+          <div class="settings-menu__rows">
+            <button class="settings-row" type="button" data-submenu="model" aria-expanded="false">
+              <span>Model</span>
+              <span class="settings-row__value" data-value="model">5.6 Sol</span>
+              <svg viewBox="0 0 12 20" aria-hidden="true"><path d="m2 2 8 8-8 8" /></svg>
+            </button>
+            <button class="settings-row" type="button" data-submenu="effort" aria-expanded="false">
+              <span>Effort</span>
+              <span class="settings-row__value" data-value="effort">Medium</span>
+              <svg viewBox="0 0 12 20" aria-hidden="true"><path d="m2 2 8 8-8 8" /></svg>
+            </button>
+            <button class="settings-row" type="button" data-submenu="speed" aria-expanded="false">
+              <span>Speed</span>
+              <span class="settings-row__value" data-value="speed">Standard</span>
+              <svg viewBox="0 0 12 20" aria-hidden="true"><path d="m2 2 8 8-8 8" /></svg>
+            </button>
+          </div>
+          <div class="settings-menu__divider"></div>
+          <button class="settings-menu__footer" type="button">
+            <span class="settings-menu__footer-default">Advanced</span>
+            <span class="settings-menu__footer-reset">Reset to default</span>
+            <svg class="settings-menu__collapse" viewBox="0 0 16 10" aria-hidden="true"><path d="m2 8 6-6 6 6" /></svg>
+            <svg class="settings-menu__reset" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5v6h6M5.2 15.5A8 8 0 1 0 6 7.7L4 11" /></svg>
+          </button>
+
+          <div class="submenu submenu--model" data-menu="model" aria-hidden="true">
+            <div class="submenu__title">Model</div>
+            <button type="button" data-setting="model" data-option="5.6 Sol">5.6 Sol</button>
+            <button type="button" data-setting="model" data-option="5.6 Terra">5.6 Terra</button>
+            <button type="button" data-setting="model" data-option="5.6 Luna">5.6 Luna</button>
+            <button type="button" data-setting="model" data-option="5.5">5.5</button>
+            <button type="button" data-setting="model" data-option="5.4">5.4</button>
+            <button type="button" data-setting="model" data-option="5.4 Mini">5.4 Mini</button>
+            <button type="button" data-setting="model" data-option="5.3 Codex Spark">5.3 Codex Spark</button>
+          </div>
+
+          <div class="submenu submenu--effort" data-menu="effort" aria-hidden="true">
+            <div class="submenu__title">Effort</div>
+            <button type="button" data-setting="effort" data-option="Light">Light</button>
+            <button type="button" data-setting="effort" data-option="Medium">Medium</button>
+            <button type="button" data-setting="effort" data-option="High">High</button>
+            <button type="button" data-setting="effort" data-option="Extra High">Extra High</button>
+            <button type="button" data-setting="effort" data-option="Ultra">
+              <span>Ultra</span><small>Consumes usage faster</small>
+            </button>
+          </div>
+
+          <div class="submenu submenu--speed" data-menu="speed" aria-hidden="true">
+            <div class="submenu__title">Speed</div>
+            <button type="button" data-setting="speed" data-option="Standard">
+              <span>Standard</span><small>Default speed</small>
+            </button>
+            <button type="button" data-setting="speed" data-option="Fast">
+              <span>Fast</span><small>1.5x speed, more usage</small>
+            </button>
+          </div>
+        </section>
       </section>
     </main>
     <script src="script.js"></script>
