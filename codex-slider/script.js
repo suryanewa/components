@@ -181,9 +181,9 @@ function moveDrag(event) {
   const absoluteDeltaX = Math.abs(deltaX);
   const absoluteDeltaY = Math.abs(deltaY);
 
-  // Resolve intent only after a small dead zone, then keep that direction
-  // locked for the rest of the gesture. Horizontal movement gets a lower
-  // activation threshold so a normal scrub cannot accidentally change speed.
+  // Resolve the initial intent after a small dead zone. Horizontal movement
+  // gets a lower activation threshold so a normal scrub cannot accidentally
+  // change speed; deliberate cross-axis movement can promote it to mixed mode.
   if (gestureIntent === "pending") {
     if (absoluteDeltaX >= 8 && absoluteDeltaX >= absoluteDeltaY * 1.15) {
       gestureIntent = "horizontal";
@@ -197,11 +197,21 @@ function moveDrag(event) {
     }
   }
 
-  value = gestureIntent === "vertical" ? dragStartValue : valueFromPointer(event);
-
   const localPointerX = (event.clientX - rect.left) / scale;
   const horizontalOverflow = Math.max(0, -localPointerX, localPointerX - 400);
   const verticalSpeedThreshold = 30 + Math.min(90, horizontalOverflow * 0.75);
+
+  // The first resolved axis prevents incidental diagonal drift, but it is not
+  // permanent. A clearly intentional move on the second axis promotes the
+  // gesture to mixed mode so effort and speed can be adjusted continuously.
+  if (gestureIntent === "horizontal" && absoluteDeltaY >= verticalSpeedThreshold + 12) {
+    gestureIntent = "mixed";
+  } else if (gestureIntent === "vertical" && absoluteDeltaX >= 18) {
+    gestureIntent = "mixed";
+  }
+
+  const verticalGestureEnabled = gestureIntent === "vertical" || gestureIntent === "mixed";
+  value = gestureIntent === "vertical" ? dragStartValue : valueFromPointer(event);
 
   if (gestureIntent !== "vertical" && endpointTugState === "scrubbing" && !root.classList.contains("is-flame-active")) {
     const reachedLeftEdge = localPointerX <= centerInset;
@@ -251,13 +261,13 @@ function moveDrag(event) {
   currentContainerY = 0;
   let containerStretch = 0;
   
-  if (gestureIntent === "vertical" && deltaY < -verticalSpeedThreshold) { // pull up past adaptive threshold: shift container up
+  if (verticalGestureEnabled && deltaY < -verticalSpeedThreshold) { // pull up past adaptive threshold: shift container up
     stretch = 0;
     trackY = 0;
     currentContainerY = -48;
     containerStretch = 48;
     currentThumbY = 0;
-  } else if (gestureIntent === "vertical" && deltaY > verticalSpeedThreshold) { // pull down past adaptive threshold: expand toward the pill
+  } else if (verticalGestureEnabled && deltaY > verticalSpeedThreshold) { // pull down past adaptive threshold: expand toward the pill
     stretch = 0;
     trackY = downwardOverlapDistance;
     currentContainerY = 0;
