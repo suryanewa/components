@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Codex Slider</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="demo-stage" aria-label="Codex slider demo">
+      <section class="codex-slider" aria-label="Performance preference">
+        <div class="codex-slider__header" aria-hidden="true">
+          <div class="codex-slider__endpoint-copy is-visible">
+            <span>Advanced</span>
+            <svg class="codex-slider__chevron" viewBox="0 0 10 16" fill="none">
+              <path d="M2 2.25 7.75 8 2 13.75" />
+            </svg>
+          </div>
+
+
+
+          <span class="codex-slider__bolt-hit is-visible">
+            <svg class="codex-slider__bolt" viewBox="0 0 24 24" aria-hidden="true" fill="none">
+              <path d="M8.9 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" />
+            </svg>
+          </span>
+          <span class="codex-slider__lightning-hit is-visible">
+            <svg class="codex-slider__lightning" viewBox="0 0 24 24" aria-hidden="true" fill="none">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+            </svg>
+          </span>
+        </div>
+
+        <div class="codex-slider__track-wrap">
+          <div class="codex-slider__track" aria-hidden="true">
+            <div class="codex-slider__fill"></div>
+            <div class="codex-slider__flame-overlay"></div>
+            <div class="codex-slider__stars-container">
+              <canvas class="codex-slider__stars"></canvas>
+            </div>
+          </div>
+
+          <div class="codex-slider__sparks">
+            <span class="spark"></span>
+            <span class="spark"></span>
+            <span class="spark"></span>
+            <span class="spark"></span>
+            <span class="spark"></span>
+            <span class="spark"></span>
+            <span class="spark"></span>
+            <span class="spark"></span>
+            <span class="spark"></span>
+            <span class="spark"></span>
+            <span class="spark"></span>
+            <span class="spark"></span>
+          </div>
+
+          <div
+            class="codex-slider__thumb"
+            role="slider"
+            tabindex="0"
+            aria-label="Choose between faster and smarter"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="100"
+            aria-valuetext="Smarter"
+          ></div>
+        </div>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
