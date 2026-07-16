@@ -176,8 +176,8 @@ const canvas = document.querySelector(".codex-slider__stars");
 const context = canvas.getContext("2d");
 
 const STAR_COLOR = "#fff";
-const STAR_SIZE = 2.2;
-const STAR_MIN_SCALE = 0.2;
+const STAR_SIZE = 2.8;
+const STAR_MIN_SCALE = 0.4;
 const OVERFLOW_THRESHOLD = 50;
 
 let cScale = 1;
