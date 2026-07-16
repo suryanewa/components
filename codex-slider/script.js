@@ -65,6 +65,10 @@ function beginDrag(event) {
   startX = event.clientX;
   currentThumbY = 0; // Always starts at baseline
   
+  window.addEventListener("pointermove", moveDrag);
+  window.addEventListener("pointerup", endDrag);
+  window.addEventListener("pointercancel", endDrag);
+
   render();
   event.preventDefault();
 }
@@ -123,6 +127,10 @@ function endDrag(event) {
   root.classList.remove("is-dragging");
   trackWrap.releasePointerCapture?.(event.pointerId);
   
+  window.removeEventListener("pointermove", moveDrag);
+  window.removeEventListener("pointerup", endDrag);
+  window.removeEventListener("pointercancel", endDrag);
+
   // Update state based on final container/thumb position
   if (verticalState === 0 && currentContainerY === -48) {
     verticalState = 1;
@@ -146,9 +154,6 @@ function endDrag(event) {
 }
 
 trackWrap.addEventListener("pointerdown", beginDrag);
-trackWrap.addEventListener("pointermove", moveDrag);
-trackWrap.addEventListener("pointerup", endDrag);
-trackWrap.addEventListener("pointercancel", endDrag);
 
 thumb.addEventListener("keydown", (event) => {
   if (root.classList.contains("is-flame-active")) return;
